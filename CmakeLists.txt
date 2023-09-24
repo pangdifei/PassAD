@@ -1,0 +1,27 @@
+cmake_minimum_required(VERSION 3.0)
+project(PassAD)
+
+set(OpenCV_DIR "./opencv/build")
+set(APP_ICON "${CMAKE_CURRENT_SOURCE_DIR}/images/icon.ico")
+set(RESOURCE_FILES "./scripts/wintun.dll" "./scripts/warpstart.bat" "./scripts/warpstop.bat" "./scripts/warp-cli.exe" "./images/icon.ico" "./conf/config.json" "./conf/url.json" "./images/bad.png" "./images/bkouqiang.png" "./images/bgouwu.png" "./images/bad1600.png" "./images/bad2400.png" "./images/weixin.jpg" "./images/alipay.jpg")
+
+find_package(OpenCV REQUIRED)
+
+foreach(RESOURCE_FILE ${RESOURCE_FILES})
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/${RESOURCE_FILE} ${CMAKE_CURRENT_BINARY_DIR}/${RESOURCE_FILE} COPYONLY)
+endforeach()
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/src/app.rc ${CMAKE_CURRENT_BINARY_DIR}/src/app.rc COPYONLY)  # 添加这行以复制app.rc文件
+
+include_directories(${OpenCV_INCLUDE_DIRS})
+add_executable(PassAD WIN32 ./src/PassAD.cpp ./src/qrcodegen.cpp ${RESOURCE_FILES} ${APP_ICON} ./src/app.rc)
+if (WIN32)
+    set_target_properties(PassAD PROPERTIES LINK_FLAGS "/SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup")
+    set_target_properties(PassAD PROPERTIES WIN32_EXECUTABLE TRUE)
+    set_target_properties(PassAD PROPERTIES LINK_DEPENDS ${APP_ICON})
+    set_target_properties(PassAD PROPERTIES LINK_FLAGS "/ICON:${APP_ICON}")
+endif()
+target_link_libraries(PassAD ${OpenCV_LIBS} user32.lib)
+
+include_directories(./nlohmann/include)
+
+include_directories("C:/Program Files (x86)/Windows Kits/10/Include/10.0.20348.0/um")

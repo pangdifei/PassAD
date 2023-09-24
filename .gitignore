@@ -1,0 +1,11 @@
+nlohmann/
+opencv/
+cmake-build-release-visual-studio/
+cmake-build-debug/
+build/
+DLL/
+cpp/
+.vs/
+.idea/
+*.rar
+CppProperties.json
