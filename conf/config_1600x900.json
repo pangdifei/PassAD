@@ -1,0 +1,15 @@
+{
+    "blacklist": [
+        {
+            "confidence": 0.6,
+            "image": "./images/bad1600.png"
+        }
+    ],
+    "h": 130,
+    "keyToPress": 40,
+    "resolution": 1600.0,
+    "sleepValue": 300,
+    "w": 1400,
+    "x": 240,
+    "y": 800
+}

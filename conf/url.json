@@ -1,0 +1,20 @@
+{
+  "web": [
+    {
+      "title": "Baidu-YiYan",
+      "url": "https://yiyan.baidu.com/"
+    },
+    {
+      "title": "192.168.6.1/passwall",
+      "url": "http://192.168.6.1/cgi-bin/luci/admin/services/passwall"
+    },
+    {
+      "title": "open conf\\url.json",
+      "url": "conf\\url.json"
+    },
+    {
+      "title": "WarpStop",
+      "url": "warpstop.bat"
+    }
+  ]
+}

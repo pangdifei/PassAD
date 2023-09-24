@@ -1,0 +1,16 @@
+{
+    "__comment__": "VK_RIGHT=0x27=39;VK_ESCAPE=0x1B=28; https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes",
+    "blacklist": [
+        {
+            "confidence": 0.6,
+            "image": "./images/bad.png"
+        }
+    ],
+    "h": 130,
+    "keyToPress": 40,
+    "resolution": 1920.0,
+    "sleepValue": 300,
+    "w": 1400,
+    "x": 280,
+    "y": 810
+}
